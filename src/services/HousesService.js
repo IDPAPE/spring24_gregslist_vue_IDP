@@ -6,9 +6,9 @@ class HousesService {
 
     async getHouses() {
         const response = await api.get('api/houses')
-        console.log('got houses', response.data)
+        // console.log('got houses', response.data)
         AppState.houses = response.data.map(house => new House(house))
-        console.log(AppState.houses)
+        // console.log(AppState.houses)
     }
 
     async deleteHouse(id) {
@@ -19,7 +19,7 @@ class HousesService {
 
     async createHouse(houseData) {
         const response = await api.post('api/houses', houseData)
-        console.log('creating house', response.data)
+        // console.log('creating house', response.data)
         AppState.houses.push(new House(response.data))
     }
 }

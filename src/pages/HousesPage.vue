@@ -4,7 +4,6 @@ import {computed, onMounted} from 'vue';
 import Pop from '../utils/Pop.js';
 import { housesService } from '../services/HousesService.js';
 import HouseCard from '../components/HouseCard.vue';
-import { Modal } from 'bootstrap';
 
 const houses = computed(()=>AppState.houses)
 const account = computed(()=>AppState.account)
@@ -21,7 +20,6 @@ async function getHouses(){
 onMounted(()=>{
   getHouses()
 })
-
 </script>
 
 
@@ -31,18 +29,10 @@ onMounted(()=>{
     <button v-if="account" type="button" class="btn btn-success border-dark" data-bs-toggle="modal"
           data-bs-target="#houseFormModal">Post House</button>
   </div>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div v-for="house in houses" :key="house.id" class="col-md-4 col-12 mt-4">
+      <div v-for="house in houses" :key="house.id" class="col-md-3 col-12 mt-4">
         <HouseCard :house="house"/>
-        <!-- <div class="card text-start">
-          <img class="card-img-top" src="holder.js/100px180/" alt="Title" />
-          <div class="card-body">
-            <h4 class="card-title">Title</h4>
-            <p class="card-text">Body</p>
-          </div>
-        </div> -->
-        
       </div>
     </div>
   </div>
